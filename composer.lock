@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "60708e6b8695874db437290cd0d23e37",
+    "content-hash": "d25148ef94484a00739b143938b62c17",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -265,6 +265,54 @@
                 "validator"
             ],
             "time": "2018-09-25T20:47:26+00:00"
+        },
+        {
+            "name": "eristemena/dialogflow-fulfillment-webhook-php",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eristemena/dialogflow-fulfillment-webhook-php.git",
+                "reference": "78d0a47b867edfa87d5050f3ab99be9634021ee0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eristemena/dialogflow-fulfillment-webhook-php/zipball/78d0a47b867edfa87d5050f3ab99be9634021ee0",
+                "reference": "78d0a47b867edfa87d5050f3ab99be9634021ee0",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^1.25",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "clean/phpdoc-md": "^0.10.0",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dialogflow\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eris Ristemena",
+                    "email": "e.ristemena@gmail.com"
+                }
+            ],
+            "description": "Dialogflow Fulfillment Webhook v1 & v2",
+            "keywords": [
+                "Dialogflow",
+                "api.ai",
+                "client library",
+                "fulfillment",
+                "webhook"
+            ],
+            "time": "2018-09-03T06:52:58+00:00"
         },
         {
             "name": "erusev/parsedown",

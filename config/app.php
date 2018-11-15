@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Manila',
 
     /*
     |--------------------------------------------------------------------------
@@ -173,7 +173,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        App\Providers\UbpServiceProvider::class
+        App\Providers\UbpServiceProvider::class,
+        App\Providers\DialogflowFulfillmentProvider::class
     ],
 
     /*

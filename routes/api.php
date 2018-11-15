@@ -25,3 +25,9 @@ Route::group(['prefix' => 'forex'], function () {
     Route::post('convert', 'ForexController@convert');
 
 });
+
+Route::group(['prefix' => 'dialogflow'], function () {
+
+    Route::post('webhook', 'DialogflowController@webhook');
+
+});

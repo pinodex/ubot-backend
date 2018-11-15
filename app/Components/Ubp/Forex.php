@@ -48,10 +48,14 @@ class Forex {
             throw new InvalidCurrencyException;
         }
 
-        $exchangeRate = $this->getExchangeRate($sourceCurrency);
+        $exchangeRate = $this->isPhp($sourceCurrency) ?
+            $this->getReverseExchangeRate($sourceCurrency, $destCurrency) :
+            $this->getExchangeRate($sourceCurrency);
+
+
         $rate = $exchangeRate['buying'];
 
-        if (!$this->isPhp($destCurrency)) {
+        if (!$this->isPhp($sourceCurrency) && !$this->isPhp($destCurrency)) {
             $exchangeRateDest = $this->getExchangeRate($destCurrency);
             $rate = $exchangeRate['buying'] / $exchangeRateDest['selling'];
         }
@@ -89,6 +93,19 @@ class Forex {
         }
 
         throw new InvalidCurrencyException;
+    }
+
+    private function getReverseExchangeRate($source, $destination)
+    {
+        $exchangeRate = $this->getExchangeRate($destination);
+
+        return [
+            'symbol' => 'PHP',
+            'name' => "Philippine Peso",
+            'buying' => 1 / $exchangeRate['buying'],
+            'selling' => 1 / $exchangeRate['selling'],
+            'asOf' => $exchangeRate['asOf']
+        ];
     }
 
 }
