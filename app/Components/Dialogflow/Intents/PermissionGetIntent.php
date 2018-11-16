@@ -26,11 +26,11 @@ class PermissionGetIntent extends BaseIntent
                 $names[] = $branch->name;
             }
 
-            $conv->close('There are ' . count($branches) . ' branches near you. ' . implode(', ', $names));
+            $this->getAgent()->reply('There are ' . count($branches) . ' branches near you. ' . implode(', ', $names));
         } else {
-            $conv->close('I cannot get branches near you without knowing your location');
+            $this->getAgent()->reply('I cannot get branches near you without knowing your location');
         }
 
-        $this->getAgent()->reply($conv);
+        //$this->getAgent()->reply($conv);
     }
 }
