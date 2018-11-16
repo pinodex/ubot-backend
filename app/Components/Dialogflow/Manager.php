@@ -11,7 +11,9 @@ class Manager
      * @var array
      */
     private $intents = [
-        'currency.conversion' => Intents\CurrencyConversionIntent::class
+        'currency.conversion' => Intents\CurrencyConversionIntent::class,
+        'branch.locator' => Intents\BranchLocatorIntent::class,
+        'permission_get' => Intents\PermissionGetIntent::class
     ];
 
     /**

@@ -16,7 +16,7 @@ class AuthController extends Controller
      */
     public function login(Ubp $ubp)
     {
-        $uri = $ubp->getLoginUri();
+        $uri = $ubp->getLoginUri('account_info');
 
         return [
             'redirect_uri' => $uri
@@ -31,7 +31,8 @@ class AuthController extends Controller
     public function oauth(Request $request, Ubp $ubp)
     {
         $code = $request->input('code');
+        $token = $ubp->obtainAccessToken($code);
 
-        //return $ubp->obtainAccessToken($code);
+
     }
 }

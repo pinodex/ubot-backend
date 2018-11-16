@@ -26,6 +26,12 @@ Route::group(['prefix' => 'forex'], function () {
 
 });
 
+Route::group(['prefix' => 'branches'], function () {
+
+    Route::get('locate', 'BranchController@locate');
+
+});
+
 Route::group(['prefix' => 'dialogflow'], function () {
 
     Route::post('webhook', 'DialogflowController@webhook');

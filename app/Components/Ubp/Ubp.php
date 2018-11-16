@@ -77,7 +77,7 @@ class Ubp
      * Get login URI for oauth flow
      * @return string
      */
-    public function getLoginUri()
+    public function getLoginUri($scope)
     {
         return sprintf('%s/convergent/v1/oauth2/authorize?%s',
             $this->basePath,
@@ -86,7 +86,9 @@ class Ubp
                 'client_id' => $this->clientId,
                 'redirect_uri' => $this->redirectUri,
                 'response_type' => 'code',
-                'scope' => implode(',', $this->loginScopes)
+                'type' => 'linking',
+                'partnerId' => '5dff2cdf-ef15-48fb-a87b-375ebff415bb',
+                'scope' => $scope
             ])
         );
     }
@@ -100,14 +102,15 @@ class Ubp
      */
     public function obtainAccessToken($code)
     {
-        $this->client->post('convergent/v1/oauth2/token', [
+        $response = $this->client->post('convergent/v1/oauth2/token', [
             'form_params' => [
                 'grant_type' => 'authorization_code',
-                'redirect_uri' => 'https://api-uat.unionbankph.com/ubp/uat/v1/redirect',
+                'redirect_uri' => $this->redirectUri,
                 'client_id' => $this->clientId,
-                'client_secret' => $this->clientSecret,
                 'code' => $code
             ]
         ]);
+
+        return json_encode($response->getBody()->getContents(), true);
     }
 }
